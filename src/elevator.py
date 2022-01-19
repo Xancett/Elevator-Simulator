@@ -38,6 +38,10 @@ class Elevator:
 			if (len(self.down_queue) > 0):
 				self.down_queue.sort()
 				self.location = self.down_queue.pop()
+		try:
+			self.gui.UpdateElevatorLocation(self.location)
+		except:
+			pass
 	def CheckDirection(self):
 		checkqueue = self.up_queue if self.direction == 1 else self.down_queue
 		for floor in checkqueue:
@@ -46,3 +50,5 @@ class Elevator:
 		self.direction *= -1
 		if len(self.up_queue) == 0 and len(self.down_queue) == 0:
 			self.direction = 0
+	def PassGUI(self, gui):
+		self.gui = gui
