@@ -12,6 +12,8 @@ class Elevator:
 	def getLocation(self):
 		return self.location
 	def PushButton(self, up, floor):
+		if (floor < 0 or floor > self.floors):
+			return
 		if (up):
 			self.up_queue.append(floor)
 		else:
@@ -19,6 +21,8 @@ class Elevator:
 		if (self.direction == 0):
 			self.direction = 1 if up else -1
 	def ChooseFloor(self, floor):
+		if (floor < 0 or floor > self.floors):
+			return
 		if (floor > self.location):
 			self.up_queue.append(floor)
 		if (floor < self.location):
