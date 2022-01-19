@@ -1,7 +1,9 @@
 from elevator import Elevator
+from gui import GUI
 import threading
 
 e = Elevator(10)
+view = GUI(e)
 e.PushButton(True, 8)
 e.PushButton(True, 2)
 e.PushButton(False, 6)
