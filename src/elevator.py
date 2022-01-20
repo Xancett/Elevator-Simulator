@@ -4,7 +4,7 @@ import threading
 class Elevator:
 	def __init__(self, floors):
 		self.floors = floors
-		self.location = 0
+		self.location = 1
 		self.up_queue = []
 		self.down_queue = []
 		self.direction = 0
