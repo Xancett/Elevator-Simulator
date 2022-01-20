@@ -1,6 +1,5 @@
 from elevator import Elevator
 from gui import GUI
-import threading
 
 e = Elevator(10)
 view = GUI(e)
