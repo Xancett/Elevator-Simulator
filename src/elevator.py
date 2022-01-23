@@ -25,8 +25,10 @@ class Elevator:
 			return
 		if (floor > self.location):
 			self.up_queue.append(floor)
+			self.direction = 1
 		if (floor < self.location):
 			self.down_queue.append(floor)
+			self.direction = -1
 	def UpdatePosition(self):
 		threading.Timer(5.0, self.UpdatePosition).start()
 		self.CheckDirection()
