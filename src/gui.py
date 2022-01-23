@@ -34,7 +34,12 @@ class GUI:
                 print("Floor number pressed, ", event)
             # Check if a floor is requested
             else:
-                print("Request at floor, ", values['-floorSelection-'])
+                if (event == "Up" or event == "Down"):
+                    print("Request at floor, ", values['-floorSelection-'])
+                else:
+                    # Set buttons to disabled/enabled if on top or bottom floor
+                    self.myWindow['Up'].update(disabled=(values['-floorSelection-'] == "Floor 10"))
+                    self.myWindow['Down'].update(disabled=(values['-floorSelection-'] == "Floor 1"))
         self.myWindow.close()
     def UpdateElevatorLocation(self, location):
         self.myWindow['-location-'].update(location)
