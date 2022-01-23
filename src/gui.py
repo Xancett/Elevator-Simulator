@@ -35,7 +35,7 @@ class GUI:
             # Check if a floor is requested
             else:
                 if (event == "Up" or event == "Down"):
-                    print("Request at floor, ", values['-floorSelection-'])
+                    self.model.PushButton((event == "Up"), int(values['-floorSelection-'].split('Floor ')[1]))
                 else:
                     # Set buttons to disabled/enabled if on top or bottom floor
                     self.myWindow['Up'].update(disabled=(values['-floorSelection-'] == "Floor 10"))
