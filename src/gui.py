@@ -9,7 +9,7 @@ class GUI:
             floors.append('Floor ' + str(k))
         leftColumn = [
             [sg.Text('Outside')],
-            [sg.Text('Floor '), sg.InputCombo(floors, key='-floorSelection-', default_value='Floor 1')],
+            [sg.Text('Floor '), sg.InputCombo(floors, key='-floorSelection-', default_value='Floor 1', enable_events=True)],
             [sg.Button('Up')],
             [sg.Button('Down')]
         ]
