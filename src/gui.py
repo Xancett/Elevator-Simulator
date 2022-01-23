@@ -10,8 +10,8 @@ class GUI:
         leftColumn = [
             [sg.Text('Outside')],
             [sg.Text('Floor '), sg.InputCombo(floors, key='-floorSelection-', default_value='Floor 1', enable_events=True)],
-            [sg.Button('Up')],
-            [sg.Button('Down')]
+            [sg.Button('Up', disabled_button_color='Gray')],
+            [sg.Button('Down', disabled=True, disabled_button_color='Gray')]
         ]
         rightColumn = [
             [sg.Text('Inside')],
@@ -21,7 +21,7 @@ class GUI:
             [sg.Button(button_text=i) for i in range(10,11)]
         ]
         myLayout = [
-            [sg.Text('Elevator location: '), sg.Text('0', key='-location-')],
+            [sg.Text('Elevator location: '), sg.Text('1', key='-location-')],
             [sg.Column(leftColumn), sg.VSeperator(), sg.Column(rightColumn)]
         ]
         self.myWindow = sg.Window(title="Elevator Simulator", layout=myLayout, margins=(400, 400))
@@ -31,7 +31,7 @@ class GUI:
                 break
             # Check if picking a floor
             if event.isnumeric():
-                print("Floor number pressed, ", event)
+                self.model.ChooseFloor(int(event))
             # Check if a floor is requested
             else:
                 if (event == "Up" or event == "Down"):
@@ -43,5 +43,6 @@ class GUI:
         self.myWindow.close()
     def UpdateElevatorLocation(self, location):
         self.myWindow['-location-'].update(location)
+        print("Location: ", location)
         self.myWindow.refresh()
         
