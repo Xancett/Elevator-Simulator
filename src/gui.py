@@ -43,6 +43,5 @@ class GUI:
         self.myWindow.close()
     def UpdateElevatorLocation(self, location):
         self.myWindow['-location-'].update(location)
-        print("Location: ", location)
         self.myWindow.refresh()
         
